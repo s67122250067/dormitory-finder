@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, checkAdmin, getDormitories, saveDormitory, deleteDormitory } from "../services/firebaseService";
+import { Link } from "react-router-dom";
+import AdminFeedbackSummary from "../components/AdminFeedbackSummary";
 
 const emptyForm = {
 dorm_name: "",
@@ -194,6 +196,7 @@ return (
     <main className="admin-page">
     <h1>🛠️ Admin Dashboard</h1>
     <p>จัดการข้อมูลหอพักในระบบ Dormitory Finder</p>
+    <AdminFeedbackSummary />
 
     {error && <p className="admin-error" role="alert">{error}</p>}
     {message && <p className="admin-success">{message}</p>}
